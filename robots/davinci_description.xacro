@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="davinci" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="gazebo" value="false" />
+  
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find davinci_description)/robots/materials.xacro" />
+
+  <!-- Robot -->
+  <xacro:include filename="$(find davinci_description)/robots/davinci.xacro" />
+
+</robot>

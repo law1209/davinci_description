@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot name="davinci">
+
+  <xacro:property name="gazebo" value="true" />
+
+  <!-- Robot -->
+  <xacro:include filename="$(find davinci_description)/robots/davinci.xacro" />
+
+  <!-- Fixing robot to the world -->
+  <link name="world"/>
+  <joint name="footprint" type="floating">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/davinci</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- base_link -->
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- p4_arm_base -->
+  <gazebo reference="p4_arm_base">
+    <mu1>10.8</mu1>
+    <mu2>10.8</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+</robot>
